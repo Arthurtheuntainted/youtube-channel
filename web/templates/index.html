@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cavern Wireless - Live Status</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📻 Cavern Wireless</h1>
+            <p class="subtitle">Automated Story Radio Station</p>
+        </header>
+
+        <section class="status-card current-broadcast">
+            <h2>🔴 NOW BROADCASTING</h2>
+            <div id="current-story">
+                <p class="loading">Waiting for broadcast data...</p>
+            </div>
+        </section>
+
+        <section class="status-card queue-status">
+            <h2>📋 Queue Status</h2>
+            <div class="queue-info">
+                <span class="stat-label">Stories in Queue:</span>
+                <span id="queue-count" class="stat-value">--</span>
+            </div>
+            <div class="queue-info">
+                <span class="stat-label">Playback Status:</span>
+                <span id="playback-status" class="stat-value">--</span>
+            </div>
+        </section>
+
+        <section class="status-card system-status">
+            <h2>⚙️ System Status</h2>
+            <div class="system-grid">
+                <div class="system-item">
+                    <span class="system-label">Google Sheets:</span>
+                    <span id="status-google" class="status-indicator">UNKNOWN</span>
+                </div>
+                <div class="system-item">
+                    <span class="system-label">Ollama (AI):</span>
+                    <span id="status-ollama" class="status-indicator">UNKNOWN</span>
+                </div>
+                <div class="system-item">
+                    <span class="system-label">TTS (Voice):</span>
+                    <span id="status-tts" class="status-indicator">UNKNOWN</span>
+                </div>
+                <div class="system-item">
+                    <span class="system-label">FFmpeg (Audio):</span>
+                    <span id="status-ffmpeg" class="status-indicator">UNKNOWN</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="status-card recent-history">
+            <h2>📜 Recent Broadcasts</h2>
+            <div id="recent-history">
+                <p class="loading">Loading history...</p>
+            </div>
+        </section>
+
+        <section class="status-card upcoming">
+            <h2>🎵 Up Next</h2>
+            <div id="upcoming-queue">
+                <p class="loading">Loading queue...</p>
+            </div>
+        </section>
+
+        <footer>
+            <p>Auto-refreshes every 5 seconds | <a href="/admin">Admin Login</a></p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
